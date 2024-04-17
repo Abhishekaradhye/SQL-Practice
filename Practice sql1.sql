@@ -22,4 +22,11 @@ ORDER BY city_length DESC, CITY ASC LIMIT 1);
 # Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.
 SELECT CITY FROM STATION WHERE left(CITY, 1) IN ('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U');
 
+# Write a solution to find all customers who never order anything. 2 tables are given. Customers table has columns id and name. 
+#Orders table has columns id and customer_id. 
+
+SELECT c.name AS Customers
+FROM Customers c
+LEFT JOIN Orders o ON c.id = o.customerId
+WHERE o.id IS NULL;
 
