@@ -30,3 +30,11 @@ FROM Customers c
 LEFT JOIN Orders o ON c.id = o.customerId
 WHERE o.id IS NULL;
 
+# Find the player(s) with the highest wickets taken among players who have played more than 100 matches and 
+#the name of the player must contain "ra".
+
+SELECT player_name, wickets_taken
+FROM CricketPlayer
+WHERE matches_played > 100
+AND player_name LIKE '%ra%'
+ORDER BY wickets_taken DESC LIMIT 1;
