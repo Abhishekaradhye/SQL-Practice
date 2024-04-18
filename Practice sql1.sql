@@ -38,3 +38,22 @@ FROM CricketPlayer
 WHERE matches_played > 100
 AND player_name LIKE '%ra%'
 ORDER BY wickets_taken DESC LIMIT 1;
+
+# Write a solution to report all the duplicate emails. No entry in email is null
+SELECT email as Email from Person 
+GROUP BY email
+HAVING COUNT(email) > 1;
+
+
+# Report for every three line segments whether they can form a triangle.
+'''Triangle table:
+| x  | y  | z  |
+| 13 | 15 | 30 |
+| 10 | 20 | 15 | '''
+
+SELECT x, y, z,
+    CASE
+        WHEN x + y > z AND y + z > x AND x + z > y THEN 'Yes'
+        ELSE 'No'
+    END AS triangle
+FROM Triangle;
